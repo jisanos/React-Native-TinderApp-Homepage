@@ -30,9 +30,11 @@ export default class App extends React.Component {
 
           <Text style={styles.description}>GOD HIMSELF</Text>
         </View>  
-        <View>
 
+        <View style={styles.buttons}>
+            <Image source={Images.rewind}/>
         </View>
+
       </View>
     );
   }
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
   },
   profiles:{
        
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'yellow',
+    backgroundColor: 'gray',
     borderColor:'black',
   },
   name:{
@@ -64,6 +66,6 @@ const styles = StyleSheet.create({
     fontSize:11
   },
   buttons:{
-    
-  }
+
+  },
 });
