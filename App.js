@@ -13,7 +13,20 @@ export default class App extends React.Component {
     this.state={
       currentIndex:0
     }
+    this.likeOpacity = this.position.x.interpolate({
+      inputRange: [-SCREEN_WIDTH/2,0,SCREEN_WIDTH/2],
+      outputRange:[0,0,1],
+      extrapolate: 'clamp'
+    })
+    this.dislikeOpacity = this.position.x.interpolate({
+      inputRange: [-SCREEN_WIDTH/2,0,SCREEN_WIDTH/2],
+      outputRange:[1,0,0],
+      extrapolate: 'clamp'
+    })
+
   }
+
+
 
   componentWillMount(){
     this.PanResponder = PanResponder.create({
@@ -63,6 +76,17 @@ export default class App extends React.Component {
 
     return(
      <Animated.View {...this.PanResponder.panHandlers} style = {[{transform: this.position.getTranslateTransform()},styles.animatedView]}>
+        
+        
+        <Animated.View style={{opacity:this.likeOpacity,position:'absolute',top:50,left:40,zIndex:1000}}>
+          <Text style={{borderWidth:1, borderColor:'green',color:'green',fontSize:30,
+          fontWeight:'800', padding:10}}>Like</Text>
+        </Animated.View>
+
+        <Animated.View style={{opacity:this.dislikeOpacity,position:'absolute',top:50,right:40,zIndex:1000}}>
+          <Text style={{borderWidth:1, borderColor:'red',color:'red',fontSize:30,
+          fontWeight:'800', padding:10}}>Dislike</Text>
+        </Animated.View>
 
       <Image source={this.state.profileImage} style={styles.images}/>
 
