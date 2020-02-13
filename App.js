@@ -34,10 +34,8 @@ export default class App extends React.Component {
             <Text style={styles.name}>
               {this.state.name}, 65
             </Text>
-
-          </Animated.View>
-
-          <Text style={styles.description}>GOD HIMSELF</Text>
+            <Text style={styles.description}>GOD HIMSELF</Text>
+          </Animated.View>        
 
         </View>  
 
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header:{
-    height:60,
+    height:85,
   },
   profiles:{
     flex:1,
@@ -63,7 +61,7 @@ const styles = StyleSheet.create({
   animatedView:{
     height:SCREEN_HEIGHT-200,
     width:SCREEN_WIDTH,
-    padding:10,
+    padding:20,
   },
 
   images:{
