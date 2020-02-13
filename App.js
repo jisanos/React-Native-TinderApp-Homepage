@@ -18,6 +18,20 @@ export default class App extends React.Component {
     };
   }
 
+  loadUser=()=>{
+    return(
+     <Animated.View style = {styles.animatedView}>
+
+      <Image source={this.state.profileImage} style={styles.images}/>
+
+      <Text style={styles.name}>
+        {this.state.name}, 65
+      </Text>
+      <Text style={styles.description}>GOD HIMSELF</Text>
+    </Animated.View>    
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -27,15 +41,8 @@ export default class App extends React.Component {
         </View>
 
         <View style={styles.profiles}>
-          <Animated.View style = {styles.animatedView}>
 
-            <Image source={this.state.profileImage} style={styles.images}/>
-
-            <Text style={styles.name}>
-              {this.state.name}, 65
-            </Text>
-            <Text style={styles.description}>GOD HIMSELF</Text>
-          </Animated.View>        
+          {this.loadUser()}
 
         </View>  
 
@@ -61,7 +68,7 @@ const styles = StyleSheet.create({
   animatedView:{
     height:SCREEN_HEIGHT-200,
     width:SCREEN_WIDTH,
-    padding:20,
+    padding:35,
   },
 
   images:{
@@ -70,7 +77,7 @@ const styles = StyleSheet.create({
     width:null,
     resizeMode:'cover',
     padding:10,
-    borderRadius:20,
+    borderRadius:10,
   },
   buttonsSect:{
     height:60,
