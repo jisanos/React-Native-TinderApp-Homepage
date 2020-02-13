@@ -82,10 +82,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header:{
+    flex:1.5,
     height:85,
+    paddingTop:25,
   },
   profiles:{
-    flex:1,
+    flex:20,
   },
   animatedView:{
     height:SCREEN_HEIGHT-200,
