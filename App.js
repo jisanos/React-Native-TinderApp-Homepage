@@ -58,7 +58,9 @@ export default class App extends React.Component {
 
         <View style={styles.header}>
 
+          <Image source={Images.cog} style={styles.logo}/>
           <Image source={Images.logo} style={styles.logo}/>
+          <Image source={Images.chat} style={styles.logo}/>
 
         </View>
 
@@ -85,6 +87,8 @@ const styles = StyleSheet.create({
     flex:1.5,
     height:85,
     paddingTop:25,
+    flexDirection:'row',
+
   },
   profiles:{
     flex:20,
@@ -101,6 +105,13 @@ const styles = StyleSheet.create({
     width:null,
     resizeMode:'contain',    
   },
+  chat:{
+    flex:1,
+    height:null,
+    width:null,
+    resizeMode:'contain', 
+  },
+  
   images:{
     flex:1,
     height:null,
