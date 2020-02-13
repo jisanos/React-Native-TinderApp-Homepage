@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, PanResponder } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
@@ -9,7 +9,23 @@ export default class App extends React.Component {
   constructor() {
     super();
 
+    this.position = new Animated.ValueXY()
+    this.state={
+      currentIndex:0
+    }
+  }
 
+  componentWillMount(){
+    this.PanResponder = PanResponder.create({
+
+      onStartShouldSetPanResponder:(evt, gestureState) =>true,
+      onPanResponderMove:(evt, gestureState) =>{
+        this.position.setValue({x:gestureState.dx,y:gestureState.dy})
+      },
+      onPanResponderRelease:(evt, gestureState)=>{
+
+      }
+    })
   }
 
   loadUser=()=>{
@@ -23,13 +39,14 @@ export default class App extends React.Component {
     };
 
     return(
-     <Animated.View style = {styles.animatedView}>
+     <Animated.View {...this.PanResponder.panHandlers} style = {[{transform: this.position.getTranslateTransform()},styles.animatedView]}>
 
       <Image source={this.state.profileImage} style={styles.images}/>
 
       <Text style={styles.name}>
         {this.state.name}, {this.state.age}
       </Text>
+
       <Text style={styles.description}>{this.state.occupation}</Text>
     </Animated.View>    
     )
@@ -40,6 +57,8 @@ export default class App extends React.Component {
       <View style={styles.container}>
 
         <View style={styles.header}>
+
+          <Image source={Images.logo} style={styles.logo}/>
 
         </View>
 
@@ -72,8 +91,14 @@ const styles = StyleSheet.create({
     height:SCREEN_HEIGHT-200,
     width:SCREEN_WIDTH,
     padding:35,
+    position:'absolute',
   },
-
+  logo:{
+    flex:1,
+    height:null,
+    width:null,
+    resizeMode:'contain',    
+  },
   images:{
     flex:1,
     height:null,
