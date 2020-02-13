@@ -9,25 +9,28 @@ export default class App extends React.Component {
   constructor() {
     super();
 
-    var haroldProfile = Profiles.harold;
-    this.state = {
-      profileImage: haroldProfile.image,
-      name: haroldProfile.name,
-      age: haroldProfile.age,
-      occupation: haroldProfile.occupation
-    };
+
   }
 
   loadUser=()=>{
+
+    var loadedProfile = Profiles.random();
+    this.state = {
+      profileImage: loadedProfile.image,
+      name: loadedProfile.name,
+      age: loadedProfile.age,
+      occupation: loadedProfile.occupation
+    };
+
     return(
      <Animated.View style = {styles.animatedView}>
 
       <Image source={this.state.profileImage} style={styles.images}/>
 
       <Text style={styles.name}>
-        {this.state.name}, 65
+        {this.state.name}, {this.state.age}
       </Text>
-      <Text style={styles.description}>GOD HIMSELF</Text>
+      <Text style={styles.description}>{this.state.occupation}</Text>
     </Animated.View>    
     )
   }
