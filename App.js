@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 export default class App extends React.Component {
@@ -31,9 +31,11 @@ export default class App extends React.Component {
           <Text style={styles.description}>GOD HIMSELF</Text>
         </View>  
 
-        <View style={styles.buttons}>
-            <Image source={Images.rewind}/>
-        </View>
+        <TouchableOpacity style={styles.touchable}>
+
+        <Image source={Images.rewind} style={styles.imageButtons}/>
+
+        </TouchableOpacity>
 
       </View>
     );
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: 'gray',
   },
   profiles:{
        
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'gray',
+    backgroundColor: 'white',
     borderColor:'black',
   },
   name:{
@@ -63,9 +65,29 @@ const styles = StyleSheet.create({
   },
   description:{
     fontStyle:'italic',
-    fontSize:11
+    fontSize:11,
+  },
+  touchable:{
+    borderWidth:1,
+    borderColor:'rgba(0,0,0,0.2)',
+    alignItems:'center',
+    width:100,
+    height:100,
+    backgroundColor:"white",
+    borderRadius:50,
   },
   buttons:{
-
+    backgroundColor:'white',
+    width:60,
+    height:60,
+    borderRadius:60/2,
+  },
+  imageButtons:{
+    flex:1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:50,
+    height:50,
   },
 });
