@@ -23,10 +23,16 @@ export default class App extends React.Component {
 
         <View style={styles.profiles}>
           <Image source={this.state.profileImage} />
-          <Text>{this.state.name}, 65</Text>
-          <Text>GOD HIMSELF</Text>
-        </View>  
 
+          <Text style={styles.name}>
+            {this.state.name}, 65
+          </Text>
+
+          <Text style={styles.description}>GOD HIMSELF</Text>
+        </View>  
+        <View>
+
+        </View>
       </View>
     );
   }
@@ -50,9 +56,14 @@ const styles = StyleSheet.create({
     borderColor:'black',
   },
   name:{
-
+    textAlign:'left',
+    fontWeight:'bold',
   },
   description:{
+    fontStyle:'italic',
+    fontSize:11
+  },
+  buttons:{
     
   }
 });
