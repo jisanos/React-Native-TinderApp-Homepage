@@ -23,7 +23,15 @@ export default class App extends React.Component {
         this.position.setValue({x:gestureState.dx,y:gestureState.dy})
       },
       onPanResponderRelease:(evt, gestureState)=>{
-
+        if(gestureState.dx>120){
+          Animated.spring(this.position,{
+            toValue:{x:SCREEN_WIDTH+100,y:gestureState.dy}
+          }).start(()=>{
+            this.setState({currentIndex:this.state.currentIndex+1},()=>{
+              this.position.setValue({x:0,y:0})
+            })
+          })
+        }
       }
     })
   }
@@ -111,7 +119,7 @@ const styles = StyleSheet.create({
     width:null,
     resizeMode:'contain', 
   },
-  
+
   images:{
     flex:1,
     height:null,
