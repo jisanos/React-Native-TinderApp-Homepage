@@ -119,11 +119,11 @@ export default class App extends React.Component {
 
         <View style={styles.buttonsSect}>
 
-          <Image source = {Images.rewind} style = {styles.logo}/>
-          <Image source = {Images.nope} style = {styles.logo}/>
-          <Image source = {Images.boost} style = {styles.logo}/>
-          <Image source = {Images.like} style = {styles.logo}/>
-          <Image source = {Images.superLike} style = {styles.logo}/>
+          <Image source = {Images.rewind} style = {styles.smallButton}/>
+          <Image source = {Images.nope} style = {styles.bigButton}/>
+          <Image source = {Images.boost} style = {styles.smallButton}/>
+          <Image source = {Images.like} style = {styles.bigButton}/>
+          <Image source = {Images.superLike} style = {styles.smallButton}/>
 
         </View>
 
@@ -158,6 +158,18 @@ const styles = StyleSheet.create({
     width:null,
     resizeMode:'contain',    
   },
+  smallButton:{
+    flex:1,
+    height:null,
+    width:null,
+    resizeMode:'contain', 
+  },
+  bigButton:{
+    flex:4,
+    height:null,
+    width:null,
+    resizeMode:'contain', 
+  },
   chat:{
     flex:1,
     height:null,
@@ -176,7 +188,9 @@ const styles = StyleSheet.create({
   buttonsSect:{
     flex:1.5,
     height:60,
-    paddingBottom:20,
+    paddingBottom:30,
+    paddingLeft:30,
+    paddingRight:30,
     flexDirection:'row',
   },
   name:{
