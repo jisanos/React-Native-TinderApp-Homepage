@@ -119,6 +119,12 @@ export default class App extends React.Component {
 
         <View style={styles.buttonsSect}>
 
+          <Image source = {Images.rewind} style = {styles.logo}/>
+          <Image source = {Images.nope} style = {styles.logo}/>
+          <Image source = {Images.boost} style = {styles.logo}/>
+          <Image source = {Images.like} style = {styles.logo}/>
+          <Image source = {Images.superLike} style = {styles.logo}/>
+
         </View>
 
       </View>
@@ -168,7 +174,10 @@ const styles = StyleSheet.create({
     borderRadius:10,
   },
   buttonsSect:{
+    flex:1.5,
     height:60,
+    paddingBottom:20,
+    flexDirection:'row',
   },
   name:{
     textAlign:'left',
