@@ -120,9 +120,14 @@ export default class App extends React.Component {
         <View style={styles.buttonsSect}>
 
           <Image source = {Images.rewind} style = {styles.smallButton}/>
+
+          
           <Image source = {Images.nope} style = {styles.bigButton}/>
+
           <Image source = {Images.boost} style = {styles.smallButton}/>
+
           <Image source = {Images.like} style = {styles.bigButton}/>
+
           <Image source = {Images.superLike} style = {styles.smallButton}/>
 
         </View>
@@ -166,9 +171,9 @@ const styles = StyleSheet.create({
   },
   bigButton:{
     flex:4,
-    height:null,
     width:null,
-    resizeMode:'contain', 
+    height:null,
+    resizeMode:'contain',
   },
   chat:{
     flex:1,
