@@ -119,23 +119,23 @@ export default class App extends React.Component {
 
         <View style={styles.buttonsSect}>
 
-          <TouchableOpacity style={styles.smallButton}>
+          <TouchableOpacity >
             <Image source = {Images.rewind} style = {styles.smallButton}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.bigButton}>
+          <TouchableOpacity >
             <Image source = {Images.nope} style = {styles.bigButton}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.smallButton}>
+          <TouchableOpacity >
             <Image source = {Images.boost} style = {styles.smallButton}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.bigButton}>
+          <TouchableOpacity >
             <Image source = {Images.like} style = {styles.bigButton}/>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.smallButton}>
+          <TouchableOpacity >
             <Image source = {Images.superLike} style = {styles.smallButton}/>
           </TouchableOpacity>
           
@@ -174,15 +174,13 @@ const styles = StyleSheet.create({
     resizeMode:'contain',    
   },
   smallButton:{
-    flex:1,
-    height:null,
-    width:null,
+    height:40,
+    width:40,
     resizeMode:'contain', 
   },
   bigButton:{
-    flex:4,
-    width:null,
-    height:null,
+    width:40,
+    height:40,
     resizeMode:'contain',
   },
   chat:{
@@ -207,6 +205,7 @@ const styles = StyleSheet.create({
     paddingLeft:30,
     paddingRight:30,
     flexDirection:'row',
+    justifyContent:'space-around',
   },
   name:{
     textAlign:'left',
