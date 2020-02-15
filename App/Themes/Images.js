@@ -9,10 +9,6 @@ const images = {
   boost: require('../Images/boost.png'),
   superLike: require('../Images/super-like.png'),
   rewind: require('../Images/rewind.png'),
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 913fc0a... Finally got background view for the buttons working propperly
 }
 
 export default images
