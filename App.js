@@ -121,26 +121,34 @@ export default class App extends React.Component {
 
           <TouchableOpacity >
 
-            <View style={{alignItems:'center',justifyContent:'center',height:40,width:40, backgroundColor:'white', borderRadius:25}}>
+            <View style={styles.smallButtonView}>
               <Image source = {Images.rewind} style = {styles.smallButton}/>
             </View>
 
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <Image source = {Images.nope} style = {styles.bigButton}/>
+            <View style={styles.bigButtonView}>
+              <Image source = {Images.nope} style = {styles.bigButton}/>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <Image source = {Images.boost} style = {styles.smallButton}/>
+            <View style={styles.smallButtonView}>
+              <Image source = {Images.boost} style = {styles.smallButton}/>
+            </View>  
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <Image source = {Images.like} style = {styles.bigButton}/>
+            <View style={styles.bigButtonView}>
+              <Image source = {Images.like} style = {styles.bigButton}/>
+            </View>  
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <Image source = {Images.superLike} style = {styles.smallButton}/>
+            <View style={styles.smallButtonView}>
+              <Image source = {Images.superLike} style = {styles.smallButton}/>
+            </View>
           </TouchableOpacity>
           
         </View>
@@ -153,7 +161,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"black",
+    backgroundColor:"#E5E4E2",
   },
   header:{
     flex:1.5,
@@ -183,12 +191,26 @@ const styles = StyleSheet.create({
     maxHeight:30,
     maxWidth:30,
     resizeMode:'center',
-    
+  },
+  smallButtonView:{
+    alignItems:'center',
+    justifyContent:'center',
+    height:40,width:40, 
+    backgroundColor:'white', 
+    borderRadius:40/2,
   },
   bigButton:{
-    width:40,
-    height:40,
-    resizeMode:'contain',
+    flex:1,
+    maxWidth:40,
+    maxHeight:40,
+    resizeMode:'center',
+  },
+  bigButtonView:{
+    alignItems:'center',
+    justifyContent:'center',
+    height:55,width:55, 
+    backgroundColor:'white', 
+    borderRadius:55/2,
   },
   chat:{
     flex:1,
@@ -208,11 +230,12 @@ const styles = StyleSheet.create({
   buttonsSect:{
     flex:1.5,
     height:60,
-    paddingBottom:50,
+    paddingBottom:67,
     paddingLeft:30,
     paddingRight:30,
     flexDirection:'row',
     justifyContent:'space-around',
+    alignItems:'center',
   },
   name:{
     textAlign:'left',
