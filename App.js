@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image,ImageBackground, TouchableOpacity, Dimensions, Animated, PanResponder } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, PanResponder } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
@@ -120,11 +120,15 @@ export default class App extends React.Component {
         <View style={styles.buttonsSect}>
 
           <TouchableOpacity >
+<<<<<<< HEAD
 
             <View style={styles.smallButtonView}>
               <Image source = {Images.rewind} style = {styles.smallButton}/>
             </View>
 
+=======
+            <Image source = {Images.rewind} style = {styles.smallButton}/>
+>>>>>>> parent of 913fc0a... Finally got background view for the buttons working propperly
           </TouchableOpacity>
 
           <TouchableOpacity >
@@ -183,10 +187,10 @@ const styles = StyleSheet.create({
     flex:1,
     height:null,
     width:null,
-    resizeMode:'contain',   
-    alignSelf:'center', 
+    resizeMode:'contain',    
   },
   smallButton:{
+<<<<<<< HEAD
     flex:1,
     maxHeight:30,
     maxWidth:30,
@@ -198,6 +202,11 @@ const styles = StyleSheet.create({
     height:40,width:40, 
     backgroundColor:'white', 
     borderRadius:40/2,
+=======
+    height:40,
+    width:40,
+    resizeMode:'contain', 
+>>>>>>> parent of 913fc0a... Finally got background view for the buttons working propperly
   },
   bigButton:{
     flex:1,
