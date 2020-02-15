@@ -149,6 +149,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"#E5E4E2",
   },
   header:{
     flex:1.5,
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
   buttonsSect:{
     flex:1.5,
     height:60,
-    paddingBottom:30,
+    paddingBottom:50,
     paddingLeft:30,
     paddingRight:30,
     flexDirection:'row',
