@@ -121,32 +121,32 @@ export default class App extends React.Component {
 
           <TouchableOpacity >
 
-            <View style={styles.smallButtonView}>
+            <View elevation={5} style={styles.smallButtonView}>
               <Image source = {Images.rewind} style = {styles.smallButton}/>
             </View>
 
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <View style={styles.bigButtonView}>
+            <View elevation={5} style={styles.bigButtonView}>
               <Image source = {Images.nope} style = {styles.bigButton}/>
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <View style={styles.smallButtonView}>
+            <View elevation={5} style={styles.smallButtonView}>
               <Image source = {Images.boost} style = {styles.smallButton}/>
             </View>  
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <View style={styles.bigButtonView}>
+            <View elevation={5} style={styles.bigButtonView}>
               <Image source = {Images.like} style = {styles.bigButton}/>
             </View>  
           </TouchableOpacity>
 
           <TouchableOpacity >
-            <View style={styles.smallButtonView}>
+            <View elevation={5} style={styles.smallButtonView}>
               <Image source = {Images.superLike} style = {styles.smallButton}/>
             </View>
           </TouchableOpacity>
@@ -195,20 +195,20 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     height:40,width:40, 
-    backgroundColor:'white', 
+    backgroundColor:'#EBF4FA', 
     borderRadius:40/2,
   },
   bigButton:{
     flex:1,
-    maxWidth:40,
-    maxHeight:40,
+    maxWidth:33,
+    maxHeight:33,
     resizeMode:'center',
   },
   bigButtonView:{
     alignItems:'center',
     justifyContent:'center',
     height:55,width:55, 
-    backgroundColor:'white', 
+    backgroundColor:'#EBF4FA', 
     borderRadius:55/2,
   },
   chat:{
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
     borderRadius:10,
   },
   buttonsSect:{
-    flex:1.5,
+    flex:2,
     height:60,
     paddingBottom:67,
     paddingLeft:30,
