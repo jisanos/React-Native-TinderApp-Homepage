@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, Animated, PanResponder } from 'react-native';
+import { StyleSheet, Text, View, Image,ImageBackground, TouchableOpacity, Dimensions, Animated, PanResponder } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
@@ -120,7 +120,11 @@ export default class App extends React.Component {
         <View style={styles.buttonsSect}>
 
           <TouchableOpacity >
-            <Image source = {Images.rewind} style = {styles.smallButton}/>
+
+            <View style={{alignItems:'center',justifyContent:'center',height:40,width:40, backgroundColor:'white', borderRadius:25}}>
+              <Image source = {Images.rewind} style = {styles.smallButton}/>
+            </View>
+
           </TouchableOpacity>
 
           <TouchableOpacity >
@@ -149,7 +153,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:"#E5E4E2",
+    backgroundColor:"black",
   },
   header:{
     flex:1.5,
@@ -171,12 +175,15 @@ const styles = StyleSheet.create({
     flex:1,
     height:null,
     width:null,
-    resizeMode:'contain',    
+    resizeMode:'contain',   
+    alignSelf:'center', 
   },
   smallButton:{
-    height:40,
-    width:40,
-    resizeMode:'contain', 
+    flex:1,
+    maxHeight:30,
+    maxWidth:30,
+    resizeMode:'center',
+    
   },
   bigButton:{
     width:40,
