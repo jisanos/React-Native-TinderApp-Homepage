@@ -119,17 +119,26 @@ export default class App extends React.Component {
 
         <View style={styles.buttonsSect}>
 
-          <Image source = {Images.rewind} style = {styles.smallButton}/>
+          <TouchableOpacity style={styles.smallButton}>
+            <Image source = {Images.rewind} style = {styles.smallButton}/>
+          </TouchableOpacity>
 
+          <TouchableOpacity style={styles.bigButton}>
+            <Image source = {Images.nope} style = {styles.bigButton}/>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallButton}>
+            <Image source = {Images.boost} style = {styles.smallButton}/>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.bigButton}>
+            <Image source = {Images.like} style = {styles.bigButton}/>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.smallButton}>
+            <Image source = {Images.superLike} style = {styles.smallButton}/>
+          </TouchableOpacity>
           
-          <Image source = {Images.nope} style = {styles.bigButton}/>
-
-          <Image source = {Images.boost} style = {styles.smallButton}/>
-
-          <Image source = {Images.like} style = {styles.bigButton}/>
-
-          <Image source = {Images.superLike} style = {styles.smallButton}/>
-
         </View>
 
       </View>
