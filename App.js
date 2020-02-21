@@ -4,6 +4,8 @@ import { Images, Profiles } from './App/Themes';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
+var  prevProfiles= null;
+var undoPressed= false;
 
 export default class App extends React.Component {
   constructor() {
@@ -11,7 +13,8 @@ export default class App extends React.Component {
 
     this.position = new Animated.ValueXY()
     this.state = {
-      currentIndex: 0
+      currentIndex: 0,
+     
     }
     this.likeOpacity = this.position.x.interpolate({
       inputRange: [-SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2],
@@ -23,7 +26,7 @@ export default class App extends React.Component {
       outputRange: [1, 0, 0],
       extrapolate: 'clamp'
     })
-
+    
   }
 
 likeFunction(yd){
@@ -69,16 +72,34 @@ dislikeFunction(yd){
       }
     })
   }
-
+  saveFunction= () => {
+    prevProfiles=null
+    let undoProf = { profileImage: this.state.image,
+      name: this.state.name,
+      age: this.state.age, 
+      occupation: this.state.occupation}
+     prevProfiles= undoProf
+  }
+  loadprevUser = () => {
+    this.setState({prevProfiles })
+    undoPressed=true;
+  }
+  resetUndo= () =>{
+    undoPressed=false;
+  }
+ 
   loadUser = () => {
-
+    if(undoPressed===false){
     var loadedProfile = Profiles.random();
     this.state = {
       profileImage: loadedProfile.image,
       name: loadedProfile.name,
       age: loadedProfile.age,
-      occupation: loadedProfile.occupation
+      occupation: loadedProfile.occupation,
+      
+
     };
+  }
 
     return (
       <Animated.View elevation={5} {...this.PanResponder.panHandlers} style={[{ transform: this.position.getTranslateTransform() }, styles.animatedView]}>
@@ -108,6 +129,7 @@ dislikeFunction(yd){
       </Animated.View>
     )
   }
+ 
 
   render() {
     return (
@@ -122,14 +144,14 @@ dislikeFunction(yd){
         </View>
 
         <View style={styles.profiles}>
-
+        
           {this.loadUser()}
-
+        
         </View>
 
         <View style={styles.buttonsSect}>
 
-          <TouchableOpacity >
+          <TouchableOpacity onPress={()=>{this.loadprevUser()}} >
 
             <View elevation={5} style={styles.smallButtonView}>
               <Image source={Images.rewind} style={styles.smallButton} />
@@ -137,7 +159,7 @@ dislikeFunction(yd){
 
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{this.dislikeFunction(0);}}>
+          <TouchableOpacity onPress={()=>{this.dislikeFunction(0), this.saveFunction(), this.resetUndo()}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.nope} style={styles.bigButton} />
             </View>
@@ -149,7 +171,7 @@ dislikeFunction(yd){
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{this.likeFunction(0)}} >
+          <TouchableOpacity onPress={()=>{this.likeFunction(0), this.saveFunction(), this.resetUndo()}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.like} style={styles.bigButton} />
             </View>
