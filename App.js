@@ -37,6 +37,13 @@ likeFunction(yd){
       this.position.setValue({ x: 0, y: 0 })
     })
   })
+  prevProfile ={
+    profileImage: this.state.profileImage,
+    name: this.state.name,
+    age: this.state.age, 
+    occupation: this.state.occupation
+  };
+  
   undoPressed=false;
 }
 
@@ -48,6 +55,13 @@ dislikeFunction(yd){
       this.position.setValue({ x: 0, y: 0 })
     })
   })
+  prevProfile ={
+    profileImage: this.state.profileImage,
+    name: this.state.name,
+    age: this.state.age, 
+    occupation: this.state.occupation
+  };
+  
   undoPressed=false;
 }
 
@@ -74,15 +88,8 @@ dislikeFunction(yd){
       }
     })
   }
-  saveFunction= () => {
-    prevProfile ={
-      profileImage: this.state.profileImage,
-      name: this.state.name,
-      age: this.state.age, 
-      occupation: this.state.occupation
-    };
-    
-  }
+  
+
   loadprevUser = () => {
     this.setState((prevProfile))
     undoPressed=true;
@@ -161,7 +168,7 @@ dislikeFunction(yd){
 
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{this.saveFunction(), this.dislikeFunction(0)}} >
+          <TouchableOpacity onPress={()=>{ this.dislikeFunction(0)}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.nope} style={styles.bigButton} />
             </View>
@@ -173,7 +180,7 @@ dislikeFunction(yd){
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{ this.saveFunction(), this.likeFunction(0)}} >
+          <TouchableOpacity onPress={()=>{ this.likeFunction(0)}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.like} style={styles.bigButton} />
             </View>
