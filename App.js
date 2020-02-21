@@ -75,14 +75,16 @@ dislikeFunction(yd){
     })
   }
   saveFunction= () => {
-    prevProfile ={profileImage: this.state.image,
+    prevProfile ={
+      profileImage: this.state.profileImage,
       name: this.state.name,
       age: this.state.age, 
-      occupation: this.state.occupation}
-     
+      occupation: this.state.occupation
+    };
+    
   }
   loadprevUser = () => {
-    this.setState({prevProfile}, ()=>{prevProfile=null})
+    this.setState((prevProfile))
     undoPressed=true;
     
   }
