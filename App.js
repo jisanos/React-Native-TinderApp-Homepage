@@ -170,19 +170,20 @@ const styles = StyleSheet.create({
   header: {
     flex: 1.5,
     height: 85,
-    paddingTop: 25,
-    paddingBottom: 8,
+    paddingTop: 30,
+    paddingBottom: 30,
     flexDirection: 'row',
+
 
   },
   profiles: {
     flex: 20,
-
+    
     alignItems: 'center',
 
   },
   animatedView: {
-    height: SCREEN_HEIGHT - 200,
+    height: SCREEN_HEIGHT - 230,
     width: SCREEN_WIDTH - 40,
     paddingBottom: 10,
     position: 'absolute',
@@ -234,7 +235,7 @@ const styles = StyleSheet.create({
     height: null,
     width: null,
     resizeMode: 'cover',
-    borderRadius:10,
+    borderRadius: 10,
   },
   buttonsSect: {
     flex: 2,
@@ -249,13 +250,13 @@ const styles = StyleSheet.create({
   name: {
     textAlign: 'left',
     fontWeight: 'bold',
-    paddingLeft:10,
+    paddingLeft: 10,
   },
 
   description: {
     fontStyle: 'italic',
     fontSize: 11,
-    paddingLeft:10,
+    paddingLeft: 10,
   },
 
 });
