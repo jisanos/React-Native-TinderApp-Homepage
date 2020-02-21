@@ -4,7 +4,7 @@ import { Images, Profiles } from './App/Themes';
 
 const SCREEN_HEIGHT = Dimensions.get('window').height
 const SCREEN_WIDTH = Dimensions.get('window').width
-var  prevProfiles= null;
+var  prevProfile= null;
 var undoPressed= false;
 
 export default class App extends React.Component {
@@ -37,6 +37,7 @@ likeFunction(yd){
       this.position.setValue({ x: 0, y: 0 })
     })
   })
+  undoPressed=false;
 }
 
 dislikeFunction(yd){
@@ -47,6 +48,7 @@ dislikeFunction(yd){
       this.position.setValue({ x: 0, y: 0 })
     })
   })
+  undoPressed=false;
 }
 
   componentWillMount() {
@@ -73,20 +75,18 @@ dislikeFunction(yd){
     })
   }
   saveFunction= () => {
-    prevProfiles=null
-    let undoProf = { profileImage: this.state.image,
+    prevProfile ={profileImage: this.state.image,
       name: this.state.name,
       age: this.state.age, 
       occupation: this.state.occupation}
-     prevProfiles= undoProf
+     
   }
   loadprevUser = () => {
-    this.setState({prevProfiles })
+    this.setState({prevProfile}, ()=>{prevProfile=null})
     undoPressed=true;
+    
   }
-  resetUndo= () =>{
-    undoPressed=false;
-  }
+  
  
   loadUser = () => {
     if(undoPressed===false){
@@ -97,9 +97,9 @@ dislikeFunction(yd){
       age: loadedProfile.age,
       occupation: loadedProfile.occupation,
       
-
     };
-  }
+  } 
+  
 
     return (
       <Animated.View elevation={5} {...this.PanResponder.panHandlers} style={[{ transform: this.position.getTranslateTransform() }, styles.animatedView]}>
@@ -159,7 +159,7 @@ dislikeFunction(yd){
 
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{this.dislikeFunction(0), this.saveFunction(), this.resetUndo()}} >
+          <TouchableOpacity onPress={()=>{this.saveFunction(), this.dislikeFunction(0)}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.nope} style={styles.bigButton} />
             </View>
@@ -171,7 +171,7 @@ dislikeFunction(yd){
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={()=>{this.likeFunction(0), this.saveFunction(), this.resetUndo()}} >
+          <TouchableOpacity onPress={()=>{ this.saveFunction(), this.likeFunction(0)}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.like} style={styles.bigButton} />
             </View>
