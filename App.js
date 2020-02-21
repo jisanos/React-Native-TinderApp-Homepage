@@ -26,7 +26,25 @@ export default class App extends React.Component {
 
   }
 
+likeFunction(yd){
+  Animated.spring(this.position, {
+    toValue: { x: SCREEN_WIDTH + 100, y: yd }
+  }).start(() => {
+    this.setState({ currentIndex: this.state.currentIndex + 1 }, () => {
+      this.position.setValue({ x: 0, y: 0 })
+    })
+  })
+}
 
+dislikeFunction(yd){
+  Animated.spring(this.position, {
+    toValue: { x: -SCREEN_WIDTH - 100, y: yd }
+  }).start(() => {
+    this.setState({ currentIndex: this.state.currentIndex + 1 }, () => {
+      this.position.setValue({ x: 0, y: 0 })
+    })
+  })
+}
 
   componentWillMount() {
     this.PanResponder = PanResponder.create({
@@ -37,22 +55,10 @@ export default class App extends React.Component {
       },
       onPanResponderRelease: (evt, gestureState) => {
         if (gestureState.dx > 120) {
-          Animated.spring(this.position, {
-            toValue: { x: SCREEN_WIDTH + 100, y: gestureState.dy }
-          }).start(() => {
-            this.setState({ currentIndex: this.state.currentIndex + 1 }, () => {
-              this.position.setValue({ x: 0, y: 0 })
-            })
-          })
+          this.likeFunction(gestureState.dy);
         }
         else if (gestureState.dx < -120) {
-          Animated.spring(this.position, {
-            toValue: { x: -SCREEN_WIDTH - 100, y: gestureState.dy }
-          }).start(() => {
-            this.setState({ currentIndex: this.state.currentIndex + 1 }, () => {
-              this.position.setValue({ x: 0, y: 0 })
-            })
-          })
+          this.dislikeFunction(gestureState.dy);
         }
         else {
           Animated.spring(this.position, {
@@ -131,7 +137,7 @@ export default class App extends React.Component {
 
           </TouchableOpacity>
 
-          <TouchableOpacity >
+          <TouchableOpacity onPress={()=>{this.dislikeFunction(0);}}>
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.nope} style={styles.bigButton} />
             </View>
@@ -143,7 +149,7 @@ export default class App extends React.Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity >
+          <TouchableOpacity onPress={()=>{this.likeFunction(0)}} >
             <View elevation={5} style={styles.bigButtonView}>
               <Image source={Images.like} style={styles.bigButton} />
             </View>
@@ -173,14 +179,10 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 30,
     flexDirection: 'row',
-
-
   },
   profiles: {
     flex: 20,
-    
     alignItems: 'center',
-
   },
   animatedView: {
     height: SCREEN_HEIGHT - 230,
@@ -189,7 +191,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: '#EBF4FA',
     borderRadius: 13,
-
   },
   logo: {
     flex: 1,
